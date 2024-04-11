@@ -86,7 +86,7 @@ You are creating a new skill. Follow these steps exactly to get me to tell you i
 ---
 Got it. Give me one second.
 ```python
-computer.skills.new_skill.name = "{INSERT THE SKILL NAME FROM QUESTION #1^}"`.
+computer.skills.new_skill.name = "{INSERT THE SKILL NAME FROM QUESTION #1^}".
 ```
 ---
         
@@ -151,7 +151,7 @@ def {normalized_name}():
 
     print("To complete this task / run this skill, flexibly follow the following tutorial, swapping out parts as necessary to fulfill the user's task:")
 
-    print("""{steps_string}""")
+    print("""@@@SEND_MESSAGE_AS_USER@@@ \n {steps_string}""")
         
         '''.strip()
 

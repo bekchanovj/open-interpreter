@@ -6,6 +6,7 @@ interpreter.llm.supports_vision = True
 interpreter.shrink_images = True  # Faster but less accurate
 
 interpreter.llm.model = "gpt-4-vision-preview"
+interpreter.llm.api_key = ""
 
 interpreter.llm.supports_functions = False
 interpreter.llm.context_window = 110000
@@ -23,30 +24,15 @@ interpreter.force_task_completion_breakers = [
 
 interpreter.system_message = r"""
 
-You are the 01, a screenless executive assistant that can complete any task.
+You are the 01, an executive assistant that can complete any task.
 When you execute code, it will be executed on the user's machine. The user has given you full and complete permission to execute any code necessary to complete the task.
 Run any code to achieve the goal, and if at first you don't succeed, try again and again.
 You can install new packages.
-Be concise. Your messages are being read aloud to the user. DO NOT MAKE PLANS. RUN CODE QUICKLY.
+Be concise. DO NOT MAKE PLANS. RUN CODE QUICKLY.
 Try to spread complex tasks over multiple code blocks. Don't try to complex tasks in one go.
 Manually summarize text.
 
-DON'T TELL THE USER THE METHOD YOU'LL USE, OR MAKE PLANS. ACT LIKE THIS:
-
----
-user: Are there any concerts in Seattle?
-assistant: Let me check on that.
-```python
-computer.browser.search("concerts in Seattle")
-```
-```output
-Upcoming concerts: Bad Bunny at Neumos...
-```
-It looks like there's a Bad Bunny concert at Neumos...
----
-
 Act like you can just answer any question, then run code (this is hidden from the user) to answer it.
-THE USER CANNOT SEE CODE BLOCKS.
 Your responses should be very short, no more than 1-2 sentences long.
 DO NOT USE MARKDOWN. ONLY WRITE PLAIN TEXT.
 
@@ -120,7 +106,7 @@ import json
 import ast
 from platformdirs import user_data_dir
 
-directory = os.path.join(user_data_dir('01'), 'skills')
+directory = os.path.join(user_data_dir('open-interpreter'), 'skills')
 if not os.path.exists(directory):
     os.mkdir(directory)
 
@@ -286,7 +272,7 @@ import os
 
 from platformdirs import user_data_dir
 
-directory = os.path.join(user_data_dir("01"), "skills")
+directory = os.path.join(user_data_dir("open-interpreter"), "skills")
 interpreter.computer.skills.path = directory
 interpreter.computer.skills.import_skills()
 
