@@ -13,6 +13,7 @@ from .mail.mail import Mail
 from .mouse.mouse import Mouse
 from .os.os import Os
 from .skills.skills import Skills
+from .workflows.workflows import Workflows
 from .sms.sms import SMS
 from .terminal.terminal import Terminal
 
@@ -38,6 +39,7 @@ class Computer:
         self.browser = Browser(self)
         self.os = Os(self)
         self.skills = Skills(self)
+        self.workflows = Workflows(self)
         self.docs = Docs(self)
         self.ai = Ai(self)
         self.files = Files(self)
@@ -45,12 +47,16 @@ class Computer:
         self.emit_images = True
         self.api_base = "https://api.openinterpreter.com/v0"
         self.save_skills = True
+        self.save_workflows = True
 
         self.import_computer_api = False  # Defaults to false
         self._has_imported_computer_api = False  # Because we only want to do this once
 
         self.import_skills = False
         self._has_imported_skills = False
+
+        self.import_workflows = False
+        self._has_imported_workflows = False
 
     # Shortcut for computer.terminal.languages
     @property

@@ -1,4 +1,5 @@
 import io
+import pytesseract
 
 from ...utils.lazy_import import lazy_import
 
@@ -6,8 +7,7 @@ from ...utils.lazy_import import lazy_import
 np = lazy_import("numpy")
 cv2 = lazy_import("cv2")
 PIL = lazy_import("PIL")
-# pytesseract is very very optional, we don't even recommend it unless the api has failed
-pytesseract = lazy_import("pytesseract")
+
 
 
 def pytesseract_get_text(img):

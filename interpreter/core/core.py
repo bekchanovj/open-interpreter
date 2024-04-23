@@ -72,6 +72,8 @@ class OpenInterpreter:
         import_computer_api=False,
         skills_path=None,
         import_skills=False,
+        workflows_path=None,
+        import_workflows=False,
         multi_line=False,
     ):
         # State
@@ -122,6 +124,12 @@ class OpenInterpreter:
             self.computer.skills.path = skills_path
 
         self.computer.import_skills = import_skills
+
+        # Workflows
+        if workflows_path:
+            self.computer.workflows.path = workflows_path
+
+        self.computer.import_workflows = import_workflows
 
     def server(self, *args, **kwargs):
         server(self, *args, **kwargs)

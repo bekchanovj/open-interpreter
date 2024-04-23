@@ -51,6 +51,10 @@ class Terminal:
                 self.computer._has_imported_skills = True
                 self.computer.skills.import_skills()
 
+            if self.computer.import_workflows and not self.computer._has_imported_workflows:
+                self.computer._has_imported_workflows = True
+                self.computer.workflows.import_workflows()
+
         if stream == False:
             # If stream == False, *pull* from _streaming_run.
             output_messages = []

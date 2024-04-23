@@ -34,6 +34,8 @@ examples = [
     "Make me a simple Pomodoro app.",
     "Open Chrome and go to YouTube.",
     "Can you set my system to light mode?",
+    "I want to teach you a new skill",
+    "I want to teach you a new workflow",
 ]
 random.shuffle(examples)
 try:
